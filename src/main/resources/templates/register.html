@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns: th="http://www.thymeleaf.org" lang="en">
+
+<body>
+
+<!-- <div th:if="${emailExist}" >
+    <div th:replace="utils :: toastNotify"></div>
+</div> -->
+
+<div >
+  <div>
+    <div>
+
+      <h2>Account Registration</h2>
+
+    </div>
+
+
+      <form th:action="@{/register}" method="post">
+        <label for="fullname">Full name:</label><br>
+        <input type="text" id="fullname" name="fullname" ><br>
+        <label for="birthdate">Birth date:</label><br>
+        <input type="date" id="birthdate" name="birthdate"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+
+
+
+  </div>
+</div>
+
+
+</body>
+
+</html>

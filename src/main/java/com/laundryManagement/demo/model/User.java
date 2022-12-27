@@ -18,12 +18,18 @@ public class User implements UserDetails {
 
     //    private static final long serialVersionUID = 1L;
     @Id
-    private Integer id;
-
+    private Long id;
     private String username;
 
+    private String fullName;
+
     private String password;
+
     private String role;
+
+    public Long getId() {
+        return id;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -61,5 +67,4 @@ public class User implements UserDetails {
     public String toString() {
         return "User [id=" + id + ", username=" + username + ", password=" + password + "]";
     }
-
 }
