@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -8,8 +9,6 @@
 </head>
 
 <body>
-
-
     <section class="flex space-x-4 justify-between items-center bg-blue-600 w-full h-12 px-10">
         <a href="/dashboard">
             <div class="flex items-center text-xl text-white">
@@ -68,69 +67,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b">
-                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                            aldrin
-                        </th>
-                        <td class="py-4 px-6">
-                            admin
-                        </td>
-                        <td class="py-4 px-6">
-                            <button type="button"
-                                class="focus:outline-none text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-orange-900">Edit</button>
-                            <button type="button"
-                                class="focus:outline-none text-white bg-red-400 hover:bg-red-500 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-red-900">Delete</button>
-                        </td>
 
-                    </tr>
+                <tr class="bg-white border-b" th:each="user: ${users}">
 
-                    <tr class="bg-white border-b ">
-                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                            owner
-                        </th>
-                        <td class="py-4 px-6">
-                            owner
-                        </td>
-                        <td class="py-4 px-6">
-                            <button type="button"
-                                class="focus:outline-none text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-orange-900">Edit</button>
-                            <button type="button"
-                                class="focus:outline-none text-white bg-red-400 hover:bg-red-500 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-red-900">Delete</button>
-                        </td>
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                               <span th:text="${user.username}"></span>
+                                                </th>
+                                                <td class="py-4 px-6">
+                                                    <span th:text="${user.role}"></span>
+                                                </td>
+                                                <td class="py-4 px-6">
+                                                    <button type="button" disabled th:if="${user.role.equals('ROLE_CUSTOMER')}" class="focus:outline-none text-white bg-gray-400 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-400 focus:ring-gray-300 dark:focus:ring-gray-900 dark:focus:ring-gray-900"
+                                                        >Edit</button>
 
-                    </tr>
 
-                    <tr class="bg-white border-b ">
-                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                            manager
-                        </th>
-                        <td class="py-4 px-6">
-                            manager
-                        </td>
-                        <td class="py-4 px-6">
-                            <button type="button"
-                                class="focus:outline-none text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-orange-900">Edit</button>
-                            <button type="button"
-                                class="focus:outline-none text-white bg-red-400 hover:bg-red-500 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-red-900">Delete</button>
-                        </td>
+                                                    <button type="button" th:if="${!user.role.equals('ROLE_CUSTOMER')}" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-yellow-400 hover:bg-yellow-500 focus:ring-yellow-300 dark:focus:ring-yellow-900 dark:focus:ring-yellow-900">
+                                                    Edit</button>
 
-                    </tr>
+                                                    <button type="button"
+                                                        class="focus:outline-none text-white bg-red-400 hover:bg-red-500 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-400 hover:bg-red-500 focus:ring-red-300 dark:focus:ring-red-900 dark:focus:ring-red-900">Delete</button>
+                                                </td>
+                </tr>
 
-                    <tr class="bg-white border-b ">
-                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                            customer
-                        </th>
-                        <td class="py-4 px-6">
-                            customer
-                        </td>
-                        <td class="py-4 px-6">
-                            <button type="button" disabled
-                                class="focus:outline-none text-white bg-gray-400 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-gray-900">Edit</button>
-                            <button type="button"
-                                class="focus:outline-none text-white bg-red-400 hover:bg-red-500 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-red-900">Delete</button>
-                        </td>
 
-                    </tr>
+
+
 
                 </tbody>
             </table>
