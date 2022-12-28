@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Manager Index</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Customer</title>
 </head>
+
 <body>
 
-manager index
 
-<div style="display:grid">
-    <a href="/admin/">Admin</a>
-    <a href="/customer/">Customer</a>
-    <a href="/owner/">Owner</a>
-    <a href="/store-manager/">Manager</a>
-</div>
+    <section class="flex space-x-4 justify-between items-center bg-blue-600 w-full h-12 px-10">
+        <a href="/dashboard">
+            <div class="flex items-center text-xl text-white">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+                    </svg>
+                </span>
+                &nbsp;
 
+
+                Laundry (Login Only)
+            </div>
+        </a>
+
+        <div class="space-x-4">
+            <a class="text-lg hover:text-blue-900 text-white" href="/admin/">Admin</a>
+            <a class="text-lg hover:text-blue-900 text-white" href="/customer/">Customer</a>
+            <a class="text-lg hover:text-blue-900 text-white" href="/owner/">Owner</a>
+            <a class="text-lg hover:text-blue-900 text-white" href="/store-manager/">Manager</a>
+            <a class="text-lg hover:text-blue-900 text-white" href="/logout">Logout</a>
+        </div>
+    </section>
+
+    <section class="grid place-items-center w-full h-screen">
+        <div class="text-center space-y-3">
+            <span class="text-5xl font-bold text-blue-700">Manager</span>
+            <p class="text-gray-400">(This page is accessible by manager only.)</p>
+        </div>
+    </section>
 </body>
+
 </html>
